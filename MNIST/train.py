@@ -23,12 +23,12 @@ val_transforms = transforms.Compose([
     transforms.Normalize((0.1307,), (0.3081,))
 ])
 
-trainset = datasets.FashionMNIST('./data', train=True, download=True, transform=train_transforms)
+trainset = datasets.MNIST('./data', train=True, download=True, transform=train_transforms)
 train_loader = torch.utils.data.DataLoader(trainset, batch_size=args.tbatch, shuffle=True)
 
-valset = datasets.FashionMNIST('./data', train=False, transform=val_transforms)
+valset = datasets.MNIST('./data', train=False, transform=val_transforms)
 val_loader = torch.utils.data.DataLoader(valset, batch_size=args.tbatch, shuffle=True)
-print('Training on FashionMNIST')
+print('Training on MNIST')
 
 
 def run_model(net, loader, criterion, optimizer, train = True):
